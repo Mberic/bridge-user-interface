@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+span {
+  @apply text-white;
+}
+.btn {
+  @apply text-white;
+}
+
+.btn-primary {
+  @apply bg-[#388dc9] text-white border-0;
+}
+
+.animate__animated.animate__pulse {
+  --animate-duration: 200ms;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+:root {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2e3640;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #464e5a;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #616c7d;
+}
