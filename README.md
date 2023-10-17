@@ -7,7 +7,7 @@ Clone this repo
 Next, install the project dependencies:
 
 ```
-npm install
+pnpm install  # using "pnpm"
 ```
 
 Now you can run the project using:
