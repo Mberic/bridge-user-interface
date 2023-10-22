@@ -1,44 +1,46 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { CodeIcon, HamburgetMenuClose, HamburgetMenuOpen } from "./Icons";
+// import React, { useState } from "react";
+import React from 'react';
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import { Web3Button } from "@thirdweb-dev/react";
 
-import "../../styles/NavBar.css";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
 import NetworkDropDown from "../swap/NetworkDropDown";
 
 function NavBar() {
   
-  const [click, setClick] = useState(false);
-
-  const handleClick = () => setClick(!click);
   return (
-    <>
-    <ThirdwebProvider activeChain="ethereum" clientId="24b3bf68e3ac0c8b37c6025ca1910ce2">
-      <nav className="navbar">
-        <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
-            <span>Cartesi Bridge</span>
-          </NavLink>
-
-          <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li>
-
-            </li>
-            <li className="nav-item">
-            <Web3Button
+     <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+          <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Cartesi Bridge
+          </Typography>
+          <ThirdwebProvider activeChain="ethereum" clientId="24b3bf68e3ac0c8b37c6025ca1910ce2">
+          <Web3Button
             contractAddress="{{contract_address}}"
             action={async (contract) => contract.call("myFunctionName")}
-            >
+          >
             Call myFunctionName from the connected wallet
-            </Web3Button>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </ThirdwebProvider>
-    {/* <NetworkDropDown></NetworkDropDown> */}
-    </>
+          </Web3Button>
+          </ThirdwebProvider>
+          </Toolbar>
+        </AppBar>
+      </Box>
   );
 }
 

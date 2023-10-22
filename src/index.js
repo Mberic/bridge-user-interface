@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Routes, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as BrowserRouter } from "react-router-dom";
 
-import './styles/index.css';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';

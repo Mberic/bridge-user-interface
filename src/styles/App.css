@@ -2,19 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.App-box {
-  box-shadow:0px 0px 70px #222;
-	-moz-box-shadow:0px 0px 70px #222;
-	-webkit-box-shadow:0px 0px 70px #222;
-	border-radius: 15px;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
-	background-color:#fff;
-	margin:0px auto;
-	border-left:2px solid #fff;
-	border-right:2px solid #fff;
-}
-
 .App {
   text-align: center;
 }
@@ -35,7 +22,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #1f5156;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

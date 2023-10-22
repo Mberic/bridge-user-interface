@@ -4,24 +4,21 @@ import {
   Container,
   Paper,
   TextField,
-  MenuItem,
   Typography,
+  Autocomplete,
   Divider
 } from '@mui/material';
 
+import tokenlist from '../../constants/tokenlist.json';
+
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+
+let tokens = tokenlist.tokens;
 
 const SwapInterface = () => {
   const [fromToken, setFromToken] = React.useState('');
   const [toToken, setToToken] = React.useState('');
   const [amount, setAmount] = React.useState('');
-
-  const tokens = [
-    { value: 'ETH', label: 'Ethereum' },
-    { value: 'USDT', label: 'USDT' },
-    { value: 'DAI', label: 'DAI' },
-    // ... add more tokens as needed
-  ];
 
   return (
     <Container maxWidth="sm" style={{ marginTop: '3rem' }}>
@@ -39,39 +36,23 @@ const SwapInterface = () => {
           variant="outlined"
           style={{ marginBottom: '1rem' }}
         />
-        <TextField
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={tokens}
           fullWidth
-          select
-          label="From (token)"
-          value={fromToken}
-          onChange={(e) => setFromToken(e.target.value)}
-          variant="outlined"
-          style={{ marginBottom: '1rem' }}
-        >
-          {tokens.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
+          renderInput={(params) => <TextField {...params} label="From (token)" />}
+        />
         <Typography align="center" style={{ marginBottom: '1rem' }}>
           ↓
         </Typography>
-        <TextField
+        <Autocomplete
+          disablePortal
+          id="combo-box-demo"
+          options={tokens}
           fullWidth
-          select
-          label="To (token)"
-          value={toToken}
-          onChange={(e) => setToToken(e.target.value)}
-          variant="outlined"
-          style={{ marginBottom: '1rem' }}
-        >
-          {tokens.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
+          renderInput={(params) => <TextField {...params} label="To (token)" />}
+        />
         <Button 
           fullWidth 
           variant="contained" 
